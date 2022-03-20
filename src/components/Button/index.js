@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import { Button as RawButton } from "@mui/material";
+import "./styles.css";
 
 function Button({
   label,
-  backgroundColor = "red",
-  size = "md",
+  backgroundColor = "#368E59",
+  size = "lg",
   handleClick,
   textColor = "white",
 }) {
@@ -18,15 +18,20 @@ function Button({
     color: textColor,
   };
   return (
-    <RawButton onClick={handleClick} style={style}>
+    <button className="button" onClick={handleClick} style={style}>
       {label}
-    </RawButton>
+    </button>
   );
 }
 
 Button.propTypes = {
   label: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  backgroundColor: PropTypes.oneOf([
+    "#368E59",
+    "#DC8858",
+    "#C06C98",
+    "#D31C34",
+  ]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   handleClick: PropTypes.func,
 };
